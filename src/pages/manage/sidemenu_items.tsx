@@ -8,7 +8,6 @@ import {
   BsJoystick,
   BsMedium,
   BsFingerprint,
-  BsFront,
   BsCloudArrowDownFill,
   BsCloudUploadFill,
   BsSearch,
@@ -142,17 +141,9 @@ export const side_menu_items: SideMenuItem[] = [
     component: lazy(() => import("./backup-restore")),
   },
   {
-    title: "manage.sidemenu.about",
-    icon: BsFront,
-    to: "/@dashboard/about",
-    role: UserRole.GUEST,
-    component: lazy(() => import("./About")),
-  },
-  {
     title: "manage.sidemenu.docs",
     icon: FaSolidBook,
     to: "https://alist.nn.ci",
-    role: UserRole.GUEST,
     external: true,
   },
   {

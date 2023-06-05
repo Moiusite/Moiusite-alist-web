@@ -178,15 +178,6 @@ const Profile = () => {
           </Show>
         </HStack>
       </Show>
-      <HStack wrap="wrap" gap="$2" mt="$2">
-        <For each={UserPermissions}>
-          {(item, i) => (
-            <PermissionBadge can={UserMethods.can(me(), i())}>
-              {t(`users.permissions.${item}`)}
-            </PermissionBadge>
-          )}
-        </For>
-      </HStack>
     </VStack>
   )
 }

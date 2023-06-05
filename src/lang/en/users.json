@@ -30,8 +30,8 @@
   "scan_qr": "Scan the QR code to save the secret key",
   "input_code": "Input the code of your 2FA app",
   "verify": "Verify",
-  "guest-tips": "You are currently visiting as a guest.",
-  "modify_nothing": "So you cannot modify anything in the manage page.",
+  "guest-tips": "Guest status.",
+  "modify_nothing": "So there is no profile to display.",
   "sso_login": "Single sign-on Login",
   "connect_sso": "Connect Single sign-on Platform",
   "disconnect_sso": "Disconnect Single sign-on Platform"
