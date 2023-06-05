@@ -98,8 +98,13 @@
     "success": "下载完成"
   },
   "footer": {
-    "powered_by": "由 AList 驱动",
-    "manage": "管理"
+    "moiusite_TG": "Tg-交流群组",
+    "moiusite_URL": "Moiusite博客",
+    "moiusite_MAIL": "报错/投诉邮箱",
+    "powered_by_1": " ",
+    "powered_by_2": "Moiusite-Alist-web",
+    "powered_by_3": "强力驱动",
+    "LICENSE": "遵循 AGPL-3.0协议"
   },
   "search": {
     "search": "搜索",

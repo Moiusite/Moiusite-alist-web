@@ -98,8 +98,13 @@
     "success": "Download completed"
   },
   "footer": {
-    "powered_by": "Powered by AList",
-    "manage": "Manage"
+    "moiusite_TG": "Telegram",
+    "moiusite_URL": "Moiusite Blog",
+    "moiusite_MAIL": "Report to me",
+    "powered_by_1": "Powered by",
+    "powered_by_2": "Moiusite-AList-web",
+    "powered_by_3": " ",
+    "LICENSE": "AGPL-3.0"
   },
   "search": {
     "search": "Search",

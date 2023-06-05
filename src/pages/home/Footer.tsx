@@ -1,25 +1,36 @@
 import { Anchor, HStack, VStack } from "@hope-ui/solid"
-import { Link } from "@solidjs/router"
-import { AnchorWithBase } from "~/components"
 import { useT } from "~/hooks"
-import { me } from "~/store"
-import { UserMethods } from "~/types"
 
 export const Footer = () => {
   const t = useT()
   return (
     <VStack class="footer" w="$full" py="$4">
       <HStack spacing="$1">
-        <Anchor href="https://github.com/Xhofe/alist" external>
-          {t("home.footer.powered_by")}
+        <Anchor href="https://www.umbrao.com" external>
+          {t("home.footer.moiusite_URL")}
         </Anchor>
         <span>|</span>
-        <AnchorWithBase
-          as={Link}
-          href={UserMethods.is_guest(me()) ? "/@login" : "/@dashboard"}
+        <Anchor href="https://t.me/+yAwNL_m2qkA0Mjg9" external>
+          {t("home.footer.moiusite_TG")}
+        </Anchor>
+        <span>|</span>
+        <Anchor href="mailto:Support@umbrao.com" external>
+          {t("home.footer.moiusite_MAIL")}
+        </Anchor>
+      </HStack>
+      <HStack spacing="$1">
+        <Anchor
+          href="https://www.gnu.org/licenses/agpl-3.0-standalone.html"
+          external
         >
-          {t(UserMethods.is_guest(me()) ? "login.login" : "home.footer.manage")}
-        </AnchorWithBase>
+          {t("home.footer.LICENSE")}
+        </Anchor>
+        <span>|</span>
+        {t("home.footer.powered_by_1")}
+        <Anchor href="https://github.com/Moiusite/Moiusite-alist-web" external>
+          {t("home.footer.powered_by_2")}
+        </Anchor>
+        {t("home.footer.powered_by_3")}
       </HStack>
     </VStack>
   )
