@@ -66,7 +66,7 @@ export const VideoBox = (props: { children: JSXElement }) => {
                 >
                   <Image
                     m="0 auto"
-                    boxSize="$8"
+                    boxSize="$7"
                     src={`${window.__dynamic_base__}/images/${item.icon}.webp`}
                   />
                 </Anchor>
