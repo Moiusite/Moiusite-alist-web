@@ -2,5 +2,7 @@ node_modules
 dist
 /src/lang/*
 !/src/lang/en/
+!/src/lang/zh-cn/
 .DS_Store
+.vscode
 .idea
