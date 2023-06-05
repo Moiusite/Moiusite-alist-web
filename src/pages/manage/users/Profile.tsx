@@ -133,7 +133,7 @@ const Profile = () => {
             <Button
               colorScheme="accent"
               onClick={() => {
-                to("/@manage/2fa")
+                to("/@dashboard/2fa")
               }}
             >
               {t("users.enable_2fa")}
