@@ -62,8 +62,12 @@
   "sign_all": "签名所有",
   "site_title": "网站标题",
   "sso_application_name": "单点登录应用名称",
+  "sso_auto_register": "Sso自动注册",
   "sso_client_id": "单点登录客户端ID",
   "sso_client_secret": "单点登录客户端机密",
+  "sso_compatibility_mode": "Sso 兼容模式",
+  "sso_default_dir": "Sso默认路径",
+  "sso_default_permission": "Sso 默认权限",
   "sso_endpoint_name": "单点登录端点名称",
   "sso_jwt_public_key": "单点登录JWT公钥",
   "sso_login_enabled": "启用单点登录",
@@ -81,5 +85,6 @@
   "token": "令牌",
   "version": "版本",
   "video_autoplay": "自动播放视频",
-  "video_types": "视频类型"
+  "video_types": "视频类型",
+  "webauthn_login_enabled": "启用Webauthn登录"
 }
