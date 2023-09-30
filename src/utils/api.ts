@@ -6,6 +6,7 @@ import {
   Obj,
   PResp,
   FsSearchResp,
+  RenameObj,
 } from "~/types"
 import { r } from "."
 
@@ -57,12 +58,11 @@ export const fsRename = (path: string, name: string): PEmptyResp => {
   return r.post("/fs/rename", { path, name })
 }
 
-export const fsRegexRename = (
+export const fsBatchRename = (
   src_dir: string,
-  src_name_regex: string,
-  new_name_regex: string
+  rename_objects: RenameObj[]
 ): PEmptyResp => {
-  return r.post("/fs/regex_rename", { src_dir, src_name_regex, new_name_regex })
+  return r.post("/fs/batch_rename", { src_dir, rename_objects })
 }
 
 export const fsMove = (
@@ -117,7 +117,7 @@ export const fetchText = async (
   url: string,
   ts = true
 ): Promise<{
-  content: string
+  content: ArrayBuffer | string
   contentType?: string
 }> => {
   try {
@@ -129,7 +129,7 @@ export const fetchText = async (
           }
         : undefined,
     })
-    const content = await resp.data.text()
+    const content = await resp.data.arrayBuffer()
     const contentType = resp.headers["content-type"]
     return { content, contentType }
   } catch (e) {
@@ -146,12 +146,14 @@ export const fsSearch = async (
   parent: string,
   keywords: string,
   password = "",
+  scope = 0,
   page = 1,
   per_page = 100
 ): Promise<FsSearchResp> => {
   return r.post("/fs/search", {
     parent,
     keywords,
+    scope,
     page,
     per_page,
     password,

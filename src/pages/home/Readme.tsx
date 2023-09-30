@@ -20,9 +20,6 @@ export const Readme = () => {
         ) {
           return ""
         }
-        if (objStore.readme) {
-          return objStore.readme
-        }
         if ([State.FetchingMore, State.Folder].includes(objStore.state)) {
           const obj = objStore.objs.find(
             (item) => item.name.toLowerCase() === "readme.md"
@@ -31,13 +28,16 @@ export const Readme = () => {
             return proxyLink(obj, true)
           }
         }
+        if (objStore.readme) {
+          return objStore.readme
+        }
         return ""
       }
     )
   )
   const fetchContent = async (readme: string) => {
     let res = {
-      content: readme,
+      content: readme as string | ArrayBuffer,
     }
     if (/^https?:\/\//g.test(readme)) {
       res = await fetchText(readme)

@@ -79,12 +79,7 @@ const Folder = () => {
           <GridLayout />
         </Match>
         <Match when={layout() === "image"}>
-          <Show
-            when={images().length > 0}
-            fallback={<Heading m="$2">{t("home.no_images")}</Heading>}
-          >
-            <ImageLayout />
-          </Show>
+          <ImageLayout images={images()} />
         </Match>
       </Switch>
       <Pager />
