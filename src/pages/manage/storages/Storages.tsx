@@ -33,7 +33,7 @@ const Storages = () => {
   useManageTitle("manage.sidemenu.storages")
   const { to } = useRouter()
   const [getStoragesLoading, getStorages] = useFetch(
-    (): Promise<PageResp<Storage>> => r.get("/admin/storage/list")
+    (): Promise<PageResp<Storage>> => r.get("/admin/storage/list"),
   )
   const [storages, setStorages] = createSignal<Storage[]>([])
   const refresh = async () => {
@@ -64,7 +64,7 @@ const Storages = () => {
   })
   const [layout, setLayout] = createStorageSignal(
     "storages-layout",
-    "grid" as "grid" | "table"
+    "grid" as "grid" | "table",
   )
   return (
     <VStack spacing="$3" alignItems="start" w="$full">
@@ -168,7 +168,7 @@ const Storages = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                <For each={storages()}>
+                <For each={shownStorages()}>
                   {(storage) => (
                     <StorageListItem storage={storage} refresh={refresh} />
                   )}

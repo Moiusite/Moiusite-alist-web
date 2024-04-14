@@ -15,7 +15,7 @@ export const WebauthnItem = (props: WebauthnItemProps) => {
     (): PEmptyResp =>
       r.post(`/authn/delete_authn`, {
         id: props.id,
-      })
+      }),
   )
   const [deleted, setDeleted] = createSignal(false)
   return (

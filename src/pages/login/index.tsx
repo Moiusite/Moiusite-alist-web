@@ -48,27 +48,37 @@ const Login = () => {
   useTitle(title)
   const bgColor = useColorModeValue("white", "$neutral1")
   const [username, setUsername] = createSignal(
-    localStorage.getItem("username") || ""
+    localStorage.getItem("username") || "",
   )
   const [password, setPassword] = createSignal(
-    localStorage.getItem("password") || ""
+    localStorage.getItem("password") || "",
   )
   const [opt, setOpt] = createSignal("")
   const [useauthn, setuseauthn] = createSignal(false)
   const [remember, setRemember] = createStorageSignal("remember-pwd", "false")
+  const [useLdap, setUseLdap] = createSignal(false)
   const [loading, data] = useFetch(
-    async (): Promise<Resp<{ token: string }>> =>
-      r.post("/auth/login/hash", {
-        username: username(),
-        password: hashPwd(password()),
-        otp_code: opt(),
-      })
+    async (): Promise<Resp<{ token: string }>> => {
+      if (useLdap()) {
+        return r.post("/auth/login/ldap", {
+          username: username(),
+          password: password(),
+          otp_code: opt(),
+        })
+      } else {
+        return r.post("/auth/login/hash", {
+          username: username(),
+          password: hashPwd(password()),
+          otp_code: opt(),
+        })
+      }
+    },
   )
   const [, postauthnlogin] = useFetch(
     (
       session: string,
       credentials: AuthenticationPublicKeyCredential,
-      username: string
+      username: string,
     ): Promise<Resp<{ token: string }>> =>
       r.post(
         "/authn/webauthn_finish_login?username=" + username,
@@ -77,8 +87,8 @@ const Login = () => {
           headers: {
             session: session,
           },
-        }
-      )
+        },
+      ),
   )
   interface Webauthntemp {
     session: string
@@ -86,7 +96,7 @@ const Login = () => {
   }
   const [, getauthntemp] = useFetch(
     (username): PResp<Webauthntemp> =>
-      r.get("/authn/webauthn_begin_login?username=" + username)
+      r.get("/authn/webauthn_begin_login?username=" + username),
   )
   const { searchParams, to } = useRouter()
   const AuthnSignEnabled = getSettingBool("webauthn_login_enabled")
@@ -110,7 +120,7 @@ const Login = () => {
           changeToken(data.token)
           to(
             decodeURIComponent(searchParams.redirect || base_path || "/"),
-            true
+            true,
           )
         },
         (msg, code) => {
@@ -119,7 +129,7 @@ const Login = () => {
           } else {
             notify.error(msg)
           }
-        }
+        },
       )
     } else {
       if (!supported()) {
@@ -134,21 +144,34 @@ const Login = () => {
       }
       const resp = await getauthntemp(username())
       handleResp(resp, async (data) => {
-        const options = parseRequestOptionsFromJSON(data.options)
-        const credentials = await get(options)
-        const resp = await postauthnlogin(data.session, credentials, username())
-        handleRespWithoutNotify(resp, (data) => {
-          notify.success(t("login.success"))
-          changeToken(data.token)
-          to(
-            decodeURIComponent(searchParams.redirect || base_path || "/"),
-            true
+        try {
+          const options = parseRequestOptionsFromJSON(data.options)
+          const credentials = await get(options)
+          const resp = await postauthnlogin(
+            data.session,
+            credentials,
+            username(),
           )
-        })
+          handleRespWithoutNotify(resp, (data) => {
+            notify.success(t("login.success"))
+            changeToken(data.token)
+            to(
+              decodeURIComponent(searchParams.redirect || base_path || "/"),
+              true,
+            )
+          })
+        } catch (error: unknown) {
+          if (error instanceof Error) notify.error(error.message)
+        }
       })
     }
   }
   const [needOpt, setNeedOpt] = createSignal(false)
+  const ldapLoginEnabled = getSettingBool("ldap_login_enabled")
+  const ldapLoginTips = getSetting("ldap_login_tips")
+  if (ldapLoginEnabled) {
+    setUseLdap(true)
+  }
 
   return (
     <Center zIndex="1" w="$full" h="100vh">
@@ -247,6 +270,15 @@ const Login = () => {
             {t("login.login")}
           </Button>
         </HStack>
+        <Show when={ldapLoginEnabled}>
+          <Checkbox
+            w="$full"
+            checked={useLdap() === true}
+            onChange={() => setUseLdap(!useLdap())}
+          >
+            {ldapLoginTips}
+          </Checkbox>
+        </Show>
         <Button
           w="$full"
           colorScheme="accent"
@@ -254,7 +286,7 @@ const Login = () => {
             changeToken()
             to(
               decodeURIComponent(searchParams.redirect || base_path || "/"),
-              true
+              true,
             )
           }}
         >

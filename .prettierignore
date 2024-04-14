@@ -4,3 +4,8 @@ pnpm-lock.yaml
 .husky
 .prettierignore
 .gitignore
+*.ttf
+*.otf
+*.woff2
+*.webp
+*.png

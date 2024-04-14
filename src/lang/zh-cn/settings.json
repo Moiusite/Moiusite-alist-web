@@ -57,6 +57,8 @@
   "qbittorrent_seedtime": "qBittorrent 做种时间",
   "qbittorrent_url": "qBittorrent链接",
   "robots_txt": "Robots.txt",
+  "s3_generate": "生成S3访问密钥和ID",
+  "s3_restart_to_apply": "重新启动Alist以应用设置",
   "s3_access_key_id": "S3 访问密钥 id",
   "s3_buckets": "S3 桶",
   "s3_secret_access_key": "S3 访问密钥",

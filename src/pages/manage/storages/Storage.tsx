@@ -24,15 +24,15 @@ function StorageOp(props: StorageProps) {
   const t = useT()
   const { to } = useRouter()
   const [deleteLoading, deleteStorage] = useFetch(
-    (): PEmptyResp => r.post(`/admin/storage/delete?id=${props.storage.id}`)
+    (): PEmptyResp => r.post(`/admin/storage/delete?id=${props.storage.id}`),
   )
   const [enableOrDisableLoading, enableOrDisable] = useFetch(
     (): PEmptyResp =>
       r.post(
         `/admin/storage/${props.storage.disabled ? "enable" : "disable"}?id=${
           props.storage.id
-        }`
-      )
+        }`,
+      ),
   )
   return (
     <>

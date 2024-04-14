@@ -12,7 +12,7 @@ import { r } from "."
 
 export const fsGet = (
   path: string = "/",
-  password = ""
+  password = "",
 ): Promise<FsGetResp> => {
   return r.post("/fs/get", {
     path: path,
@@ -25,7 +25,7 @@ export const fsList = (
   page = 1,
   per_page = 0,
   refresh = false,
-  cancelToken?: CancelToken
+  cancelToken?: CancelToken,
 ): Promise<FsListResp> => {
   return r.post(
     "/fs/list",
@@ -38,14 +38,14 @@ export const fsList = (
     },
     {
       cancelToken: cancelToken,
-    }
+    },
   )
 }
 
 export const fsDirs = (
   path = "/",
   password = "",
-  forceRoot = false
+  forceRoot = false,
 ): PResp<Obj[]> => {
   return r.post("/fs/dirs", { path, password, force_root: forceRoot })
 }
@@ -60,7 +60,7 @@ export const fsRename = (path: string, name: string): PEmptyResp => {
 
 export const fsBatchRename = (
   src_dir: string,
-  rename_objects: RenameObj[]
+  rename_objects: RenameObj[],
 ): PEmptyResp => {
   return r.post("/fs/batch_rename", { src_dir, rename_objects })
 }
@@ -68,14 +68,14 @@ export const fsBatchRename = (
 export const fsMove = (
   src_dir: string,
   dst_dir: string,
-  names: string[]
+  names: string[],
 ): PEmptyResp => {
   return r.post("/fs/move", { src_dir, dst_dir, names })
 }
 
 export const fsRecursiveMove = (
   src_dir: string,
-  dst_dir: string
+  dst_dir: string,
 ): PEmptyResp => {
   return r.post("/fs/recursive_move", { src_dir, dst_dir })
 }
@@ -83,7 +83,7 @@ export const fsRecursiveMove = (
 export const fsCopy = (
   src_dir: string,
   dst_dir: string,
-  names: string[]
+  names: string[],
 ): PEmptyResp => {
   return r.post("/fs/copy", { src_dir, dst_dir, names })
 }
@@ -108,14 +108,15 @@ export const fsNewFile = (path: string, password: string): PEmptyResp => {
 export const offlineDownload = (
   path: string,
   urls: string[],
-  type: string
+  tool: string,
+  delete_policy: string,
 ): PEmptyResp => {
-  return r.post(`/fs/add_${type}`, { path, urls })
+  return r.post(`/fs/add_offline_download`, { path, urls, tool, delete_policy })
 }
 
 export const fetchText = async (
   url: string,
-  ts = true
+  ts = true,
 ): Promise<{
   content: ArrayBuffer | string
   contentType?: string
@@ -125,7 +126,7 @@ export const fetchText = async (
       responseType: "blob",
       params: ts
         ? {
-            ts: new Date().getTime(),
+            alist_ts: new Date().getTime(),
           }
         : undefined,
     })
@@ -148,7 +149,7 @@ export const fsSearch = async (
   password = "",
   scope = 0,
   page = 1,
-  per_page = 100
+  per_page = 100,
 ): Promise<FsSearchResp> => {
   return r.post("/fs/search", {
     parent,

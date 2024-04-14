@@ -52,7 +52,7 @@ const Profile = () => {
         username: ssoID ? me().username : username(),
         password: ssoID ? "" : password(),
         sso_id: me().sso_id,
-      })
+      }),
   )
 
   interface WebauthnItem {
@@ -66,15 +66,15 @@ const Profile = () => {
   }
 
   const [getauthncredentialsloading, getauthncredentials] = useFetch(
-    (): PResp<WebauthnItem[]> => r.get("/authn/getcredentials")
+    (): PResp<WebauthnItem[]> => r.get("/authn/getcredentials"),
   )
   const [, getauthntemp] = useFetch(
-    (): PResp<Webauthntemp> => r.get("/authn/webauthn_begin_registration")
+    (): PResp<Webauthntemp> => r.get("/authn/webauthn_begin_registration"),
   )
   const [postregistrationloading, postregistration] = useFetch(
     (
       session: string,
-      credentials: RegistrationPublicKeyCredential
+      credentials: RegistrationPublicKeyCredential,
     ): PEmptyResp =>
       r.post(
         "/authn/webauthn_finish_registration",
@@ -83,8 +83,8 @@ const Profile = () => {
           headers: {
             session: session,
           },
-        }
-      )
+        },
+      ),
   )
   const saveMe = async (ssoID?: boolean) => {
     if (password() && password() !== confirmPassword()) {
@@ -153,7 +153,7 @@ const Profile = () => {
                 color="$info9"
                 as={LinkWithBase}
                 href={`/@login?redirect=${encodeURIComponent(
-                  location.pathname
+                  location.pathname,
                 )}`}
               >
                 {t("global.go_login")}
@@ -282,7 +282,7 @@ const Profile = () => {
               return
             }
             const resp = await getauthntemp()
-            handleRespWithoutNotify(resp, async (data) => {
+            handleResp(resp, async (data) => {
               const options = parseCreationOptionsFromJSON(data.options)
               const session = data.session
               try {
@@ -291,7 +291,7 @@ const Profile = () => {
                   await postregistration(session, browserresponse),
                   () => {
                     notify.success(t("users.add_webauthn_success"))
-                  }
+                  },
                 )
               } catch (error: unknown) {
                 if (error instanceof Error) notify.error(error.message)
