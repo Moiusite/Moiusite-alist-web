@@ -2,11 +2,50 @@
   "115 Cloud": {
     "cookie": "Cookie",
     "cookie-tips": "需要 QR 代码令牌和 cookie 中的一个",
+    "limit_rate": "限制速率",
+    "limit_rate-tips": "限制所有 api 请求速率(1r/[limit_rate]s)",
     "page_size": "分页大小",
     "page_size-tips": "115 驱动程序的列表 API 的每页大小",
+    "qrcode_source": "Qrcode 源",
+    "qrcode_source-tips": "选择二维码设备，默认 linux",
+    "qrcode_sources": {
+      "android": "安卓",
+      "ios": "IOS",
+      "linux": "Linux",
+      "mac": "Mac",
+      "tv": "Tv",
+      "web": "网页",
+      "windows": "Windows"
+    },
     "qrcode_token": "二维码令牌",
     "qrcode_token-tips": "需要 QR 代码令牌和 cookie 中的一个",
     "root_folder_id": "根文件夹ID"
+  },
+  "115 Share": {
+    "cookie": "Cookie",
+    "cookie-tips": "需要 QR 代码令牌和 cookie 中的一个",
+    "limit_rate": "限制速率",
+    "limit_rate-tips": "限制所有 api 请求速率(1r/[limit_rate]s)",
+    "page_size": "分页大小",
+    "page_size-tips": "115 驱动程序的列表 API 的每页大小",
+    "qrcode_source": "Qrcode 源",
+    "qrcode_source-tips": "选择二维码设备，默认 linux",
+    "qrcode_sources": {
+      "android": "安卓",
+      "ios": "IOS",
+      "linux": "Linux",
+      "mac": "Mac",
+      "tv": "Tv",
+      "web": "网页",
+      "windows": "Windows"
+    },
+    "qrcode_token": "二维码令牌",
+    "qrcode_token-tips": "需要 QR 代码令牌和 cookie 中的一个",
+    "receive_code": "提取码",
+    "receive_code-tips": "115 分享链接提取码",
+    "root_folder_id": "根文件夹ID",
+    "share_code": "分享码",
+    "share_code-tips": "分享链接的分享码"
   },
   "123Pan": {
     "order_by": "排序",
@@ -55,7 +94,8 @@
     "type": "类型",
     "types": {
       "family": "家庭云",
-      "personal": "个人云"
+      "personal": "个人云",
+      "personal_new": "新的个人盘"
     }
   },
   "189Cloud": {
@@ -67,6 +107,7 @@
   },
   "189CloudPC": {
     "family_id": "Family id",
+    "family_transfer": "Family transfer",
     "no_use_ocr": "不使用OCR",
     "order_by": "排序",
     "order_bys": {
@@ -239,10 +280,18 @@
     "root_folder_path": "根文件夹路径",
     "surl": "百度网盘分享链接"
   },
+  "ChaoXingGroupDrive": {
+    "bbsid": "Bbsid",
+    "cookie": "Cookie",
+    "password": "密码",
+    "root_folder_id": "根文件夹ID",
+    "user_name": "用户名"
+  },
   "Cloudreve": {
     "address": "地址",
     "cookie": "Cookie",
     "custom_ua": "自定义UA",
+    "enable_thumb_and_folder_size": "启用缩略图和文件夹大小",
     "password": "密码",
     "root_folder_path": "根文件夹路径",
     "username": "用户名"
@@ -274,8 +323,32 @@
     "remote_path-tips": "这是加密数据存储的位置",
     "salt": "加盐",
     "salt-tips": "如果您不知道什么是加盐，可以视为第二个密码。可选，推荐。",
+    "show_hidden": "显示隐藏",
+    "show_hidden-tips": "显示隐藏目录以及文件",
     "thumbnail": "缩略图",
-    "thumbnail-tips": "enable thumbnail which pre-generated under .thumbnails folder"
+    "thumbnail-tips": "启用在缩略图文件夹下预先生成的缩略图"
+  },
+  "Doge": {
+    "access_key_id": "访问密钥 Id",
+    "add_filename_to_disposition": "添加filename到disposition",
+    "add_filename_to_disposition-tips": "添加filename到Content-Disposition头中。",
+    "bucket": "存储桶",
+    "custom_host": "自定义HOST",
+    "endpoint": "Endpoint",
+    "force_path_style": "强制路径样式",
+    "list_object_version": "列出对象版本",
+    "list_object_versions": {
+      "v1": "V1",
+      "v2": "V2"
+    },
+    "placeholder": "占位文件名",
+    "region": "地区",
+    "remove_bucket": "移除bucket",
+    "remove_bucket-tips": "使用自定义主机时从路径中删除bucket名称。",
+    "root_folder_path": "根文件夹路径",
+    "secret_access_key": "安全访问密钥",
+    "session_token": "会话令牌",
+    "sign_url_expire": "签名链接有效期"
   },
   "Dropbox": {
     "client_id": "客户端ID",
@@ -290,6 +363,11 @@
     "address": "地址",
     "password": "密码",
     "root_folder_path": "根文件夹路径",
+    "username": "用户名"
+  },
+  "FeijiPan": {
+    "password": "密码",
+    "root_folder_id": "根文件夹ID",
     "username": "用户名"
   },
   "GoogleDrive": {
@@ -313,6 +391,11 @@
     "refresh_token": "刷新令牌",
     "root_folder_id": "根文件夹ID",
     "show_archive": "显示归档"
+  },
+  "ILanZou": {
+    "password": "密码",
+    "root_folder_id": "根文件夹ID",
+    "username": "用户名"
   },
   "IPFS API": {
     "endpoint": "Endpoint",
@@ -341,6 +424,8 @@
   },
   "Local": {
     "mkdir_perm": "创建文件夹权限",
+    "recycle_bin_path": "回收站路径",
+    "recycle_bin_path-tips": "回收站的路径，如果空或保留“永久删除”则永久删除",
     "root_folder_path": "根文件夹路径",
     "show_hidden": "显示隐藏",
     "show_hidden-tips": "显示隐藏目录以及文件",
@@ -381,6 +466,8 @@
     "password": "密码",
     "phone": "手机号码",
     "root_folder_id": "根文件夹ID",
+    "sms_code": "短信验证码",
+    "sms_code-tips": "输入 'send' 发送短信",
     "upload_thread": "上传线程",
     "upload_thread-tips": "1<=线程<=32"
   },
@@ -388,6 +475,8 @@
     "chunk_size": "分片大小",
     "client_id": "客户端ID",
     "client_secret": "客户端密钥",
+    "custom_host": "自定义HOST",
+    "custom_host-tips": "自定义加速下载链接",
     "is_sharepoint": "是否Sharepoint",
     "redirect_uri": "重定向 Uri",
     "refresh_token": "刷新令牌",
@@ -405,6 +494,8 @@
     "chunk_size": "分片大小",
     "client_id": "客户端ID",
     "client_secret": "客户端密钥",
+    "custom_host": "自定义HOST",
+    "custom_host-tips": "自定义加速下载链接",
     "email": "邮箱",
     "region": "地区",
     "regions": {
@@ -445,6 +536,15 @@
     },
     "root_folder_id": "根文件夹ID"
   },
+  "Quqi": {
+    "cdn": "CDN",
+    "cdn-tips": "如果您启用此选项，下载速度可以提高，但将会有一些性能损失",
+    "cookie": "Cookie",
+    "cookie-tips": "Cookie 可以同时用于多个客户端",
+    "password": "密码",
+    "phone": "手机号码",
+    "root_folder_id": "根文件夹ID"
+  },
   "S3": {
     "access_key_id": "访问密钥 Id",
     "add_filename_to_disposition": "添加filename到disposition",
@@ -469,6 +569,7 @@
   },
   "SFTP": {
     "address": "地址",
+    "ignore_symlink_error": "忽略软链接错误",
     "password": "密码",
     "private_key": "私钥",
     "root_folder_path": "根文件夹路径",
@@ -485,7 +586,9 @@
     "address": "地址",
     "password": "密码",
     "repoId": "RepoId",
+    "repoPwd": "仓库密码",
     "root_folder_path": "根文件夹路径",
+    "token": "令牌",
     "username": "用户名"
   },
   "Teambition": {
@@ -607,6 +710,23 @@
     "url_structure": "Url 结构",
     "url_structure-tips": "结构:\nFolderName:\n  [FileName:][FileSize:][Modified:]Url"
   },
+  "VTencent": {
+    "cookie": "Cookie",
+    "order_by": "排序",
+    "order_bys": {
+      "CreatTime": "创建时间",
+      "Name": "名称",
+      "Size": "大小",
+      "UpdateTime": "修改时间"
+    },
+    "order_direction": "排序方式",
+    "order_directions": {
+      "Asc": "升序",
+      "Desc": "降序"
+    },
+    "root_folder_id": "根文件夹ID",
+    "tf_uid": "Tf uid"
+  },
   "Virtual": {
     "max_file_size": "最大文件大小",
     "min_file_size": "最小文件大小",
@@ -618,6 +738,7 @@
     "address": "地址",
     "password": "密码",
     "root_folder_path": "根文件夹路径",
+    "tls_insecure_skip_verify": "跳过SSL证书验证",
     "username": "用户名",
     "vendor": "供应商",
     "vendors": {
@@ -679,6 +800,7 @@
   },
   "config": {
     "115 Cloud": {},
+    "115 Share": {},
     "123Pan": {},
     "123PanLink": {},
     "123PanShare": {},
@@ -698,12 +820,16 @@
     "BaiduNetdisk": {},
     "BaiduPhoto": {},
     "BaiduShare": {},
+    "ChaoXingGroupDrive": {},
     "Cloudreve": {},
     "Crypt": {},
+    "Doge": {},
     "Dropbox": {},
     "FTP": {},
+    "FeijiPan": {},
     "GoogleDrive": {},
     "GooglePhoto": {},
+    "ILanZou": {},
     "IPFS API": {},
     "Lanzou": {},
     "Local": {},
@@ -717,6 +843,7 @@
     "PikPak": {},
     "PikPakShare": {},
     "Quark": {},
+    "Quqi": {},
     "S3": {},
     "SFTP": {},
     "SMB": {},
@@ -729,6 +856,7 @@
     "UC": {},
     "USS": {},
     "UrlTree": {},
+    "VTencent": {},
     "Virtual": {},
     "WebDav": {},
     "WeiYun": {},
@@ -737,6 +865,7 @@
   },
   "drivers": {
     "115 Cloud": "115 网盘",
+    "115 Share": "115 云盘分享",
     "123Pan": "123云盘",
     "123PanLink": "123云盘直链",
     "123PanShare": "123云盘分享",
@@ -752,12 +881,16 @@
     "BaiduNetdisk": "百度网盘",
     "BaiduPhoto": "一刻相册",
     "BaiduShare": "百度分享",
+    "ChaoXingGroupDrive": "超星小组盘",
     "Cloudreve": "Cloudreve",
     "Crypt": "Crypt",
+    "Doge": "多吉云",
     "Dropbox": "Dropbox",
     "FTP": "FTP",
+    "FeijiPan": "飞机盘",
     "GoogleDrive": "谷歌云盘",
     "GooglePhoto": "谷歌相册",
+    "ILanZou": "蓝奏云优享版",
     "IPFS API": "IPFS API",
     "Lanzou": "蓝奏云",
     "Local": "本机存储",
@@ -769,6 +902,7 @@
     "PikPak": "PikPak",
     "PikPakShare": "PikPak分享",
     "Quark": "夸克",
+    "Quqi": "曲奇云盘",
     "S3": "对象存储",
     "SFTP": "SFTP",
     "SMB": "SMB",
@@ -781,6 +915,7 @@
     "UC": "UC",
     "USS": "又拍云存储",
     "UrlTree": "地址树",
+    "VTencent": "腾讯智能创作平台",
     "Virtual": "虚拟存储",
     "WebDav": "WebDav",
     "WeiYun": "腾讯微云",

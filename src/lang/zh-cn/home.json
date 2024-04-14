@@ -8,6 +8,7 @@
     "download": "下载",
     "failed_load_img": "载入图像失败",
     "open_with": "使用... 打开",
+    "play_with": "使用...播放",
     "install": "安装",
     "installing": "正在安装",
     "tr-install": "TrollStore",
@@ -29,6 +30,7 @@
     "refresh": "刷新",
     "toggle_theme": "切换主题",
     "switch_lang": "切换语言",
+    "toggle_markdown_toc": "是否显示大纲",
     "toggle_checkbox": "开关复选框",
     "rename": "重命名",
     "input_new_name": "输入一个新名称",
@@ -49,6 +51,12 @@
     "cancel_select": "取消选择",
     "offline_download": "离线下载",
     "offline_download-tips": "每行一条链接",
+    "delete_policy": {
+      "delete_on_upload_succeed": "上传成功后删除",
+      "delete_on_upload_failed": "上传失败时删除",
+      "delete_never": "从不删除",
+      "delete_always": "总是删除"
+    },
     "download": "下载",
     "batch_download": "批量下载",
     "package_download": "打包下载",
@@ -103,6 +111,35 @@
       "list": "列表视图",
       "grid": "网格视图",
       "image": "图片视图"
+    },
+    "position_of_header_navbar": "标题栏和导航栏的位置",
+    "position_of_header_navbar_options": {
+      "static": "普通",
+      "sticky": "吸附到页面顶部",
+      "only_navbar_sticky": "仅吸附导航栏"
+    },
+    "show_sidebar": "显示侧边栏",
+    "show_sidebar_options": {
+      "none": "无",
+      "visible": "显示"
+    },
+    "list_item_filename_overflow": "列表项目文件名过长",
+    "list_item_filename_overflow_options": {
+      "ellipsis": "省略号",
+      "scrollable": "可滚动",
+      "multi_line": "多行显示"
+    },
+    "open_item_on_checkbox": "在复选框上打开选项",
+    "open_item_on_checkbox_options": {
+      "direct": "直接打开",
+      "disable_while_checked": "选中时禁用",
+      "with_ctrl": "按住 Ctrl/Command 按键打开",
+      "with_alt": "按住 Alt/Option 按键打开"
+    },
+    "select_with_mouse": "在复选框关闭时使用鼠标框选",
+    "select_with_mouse_options": {
+      "disabled": "停用",
+      "open_item_with_dblclick": "双击打开"
     }
   },
   "package_download": {
@@ -115,7 +152,7 @@
     "success": "下载完成"
   },
   "footer": {
-    "moiusite_TG": "Tg-交流群组",
+    "moiusite_TG": "Tg-个人频道",
     "moiusite_URL": "Moiusite博客",
     "moiusite_MAIL": "报错/投诉邮箱",
     "powered_by_1": " ",
